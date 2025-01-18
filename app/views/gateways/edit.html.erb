@@ -1,0 +1,36 @@
+<h1><%= action_name.capitalize %> Gateway</h1>
+
+<%= form_with model: @gateway, local: true do |f| %>
+  <div>
+    <%= f.label :name %>
+    <%= f.text_field :name, required: true %>
+  </div>
+  <div>
+    <%= f.label :production_url %>
+    <%= f.text_field :production_url, required: true %>
+  </div>
+  <div>
+    <%= f.label :sandbox_url %>
+    <%= f.text_field :sandbox_url %>
+  </div>
+  <div>
+    <%= f.label :public_key %>
+    <%= f.text_field :public_key, required: true %>
+  </div>
+  <div>
+    <%= f.label :secret_key %>
+    <%= f.password_field :secret_key, required: true %>
+  </div>
+  <div>
+    <%= f.label :rate, "Taxa de Serviço (%)" %>
+    <%= f.number_field :rate, step: 0.01 %>
+  </div>
+  <div>
+    <%= f.label :active, "Ativo?" %>
+    <%= f.check_box :active %>
+  </div>
+  <div>
+    <%= f.submit "Salvar", class: "btn btn-success" %>
+  </div>
+<% end %>
+<%= link_to "Voltar", gateways_path, class: "btn btn-secondary" %>

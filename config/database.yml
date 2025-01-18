@@ -1,0 +1,19 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: "angelo_souza"
+  password: 1234
+  host: 127.0.0.1
+
+development:
+  <<: *default
+  database: gateway_integration_development
+
+test:
+  <<: *default
+  database: gateway_integration_test
+
+production:
+  <<: *default
+  database: gateway_integration_production

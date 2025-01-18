@@ -1,0 +1,24 @@
+<h1>Gateways</h1>
+<%= link_to "Novo Gateway", new_gateway_path, class: "btn btn-primary" %>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Status</th>
+      <th>Ações</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @gateways.each do |gateway| %>
+      <tr>
+        <td><%= gateway.name %></td>
+        <td><%= gateway.active_status %></td>
+        <td>
+          <%= link_to "Editar", edit_gateway_path(gateway), class: "btn btn-warning" %>
+          <%= link_to "Excluir", gateway_path(gateway), method: :delete, data: { confirm: "Tem certeza?" }, class: "btn btn-danger" %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

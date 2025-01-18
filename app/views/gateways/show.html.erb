@@ -1,0 +1,36 @@
+<h1>Detalhes do Gateway</h1>
+
+<table class="table table-striped">
+  <tr>
+    <th>Nome</th>
+    <td><%= @gateway.name %></td>
+  </tr>
+  <tr>
+    <th>Status</th>
+    <td><%= @gateway.active ? "Ativo" : "Inativo" %></td>
+  </tr>
+  <tr>
+    <th>URL de Produção</th>
+    <td><%= @gateway.production_url %></td>
+  </tr>
+  <tr>
+    <th>URL de Sandbox</th>
+    <td><%= @gateway.sandbox_url %></td>
+  </tr>
+  <tr>
+    <th>Chave Pública</th>
+    <td><%= @gateway.public_key %></td>
+  </tr>
+  <tr>
+    <th>Chave Secreta</th>
+    <td><%= @gateway.secret_key %></td>
+  </tr>
+  <tr>
+    <th>Taxa (%)</th>
+    <td><%= number_to_percentage(@gateway.rate, precision: 2) %></td>
+  </tr>
+</table>
+
+<%= link_to "Voltar", gateways_path, class: "btn btn-secondary" %>
+<%= link_to "Editar", edit_gateway_path(@gateway), class: "btn btn-warning" %>
+<%= link_to "Excluir", gateway_path(@gateway), method: :delete, data: { confirm: "Tem certeza?" }, class: "btn btn-danger" %>
